@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Barbería Arruabarrena</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+    <a class="brand" href="#inicio">
+        BARBERÍA <span>ARRUABARRENA</span>
+    </a>
+
+    <nav>
+        <a href="#servicios">Servicios</a>
+        <a href="#reserva">Reservar</a>
+        <a href="#barberos">Barberos</a>
+        <a href="#proyectos">Proyectos</a>
+    </nav>
+</header>
+
+<main>
+
+    <!-- INICIO -->
+    <section class="hero" id="inicio">
+        <p class="eyebrow">TRADICIÓN · ESTILO · PRECISIÓN</p>
+        <h1>Tu estilo, <span>nuestro trabajo.</span></h1>
+        <p>Bienvenidos al sistema de turnos online de Barbería Arruabarrena.</p>
+        <a class="button" href="#reserva">Reservar un turno</a>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section class="section" id="servicios">
+        <div class="section-heading">
+            <p class="eyebrow">NUESTRO CATÁLOGO</p>
+            <h2>Servicios y precios</h2>
+        </div>
+
+        <div class="cards">
+
+            <article class="service-card">
+                <span class="number">01</span>
+                <h3>Corte degradado y fade</h3>
+                <p>Un corte prolijo con terminaciones definidas.</p>
+                <strong>$9.500</strong>
+                <button class="choose" data-service="Corte degradado y fade">
+                    Elegir servicio
+                </button>
+            </article>
+
+            <article class="service-card">
+                <span class="number">02</span>
+                <h3>Ritual de barba y navaja</h3>
+                <p>Cuidado de barba y perfilado tradicional.</p>
+                <strong>$7.500</strong>
+                <button class="choose" data-service="Ritual de barba y navaja">
+                    Elegir servicio
+                </button>
+            </article>
+
+            <article class="service-card featured">
+                <span class="number">03</span>
+                <h3>Combo VIP</h3>
+                <p>Corte, barba y ritual completo.</p>
+                <strong>$15.000</strong>
+                <button class="choose" data-service="Combo VIP">
+                    Elegir servicio
+                </button>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- RESERVA -->
+    <section class="section booking" id="reserva">
+
+        <div>
+            <p class="eyebrow">PORTAL DE CLIENTES</p>
+            <h2>Reservá tu turno</h2>
+            <p>Completá tus datos y elegí tu servicio, barbero y horario.</p>
+
+            <form id="booking-form">
+
+                <label>Nombre y apellido
+                    <input type="text" id="client-name"
+                    placeholder="Tu nombre" required>
+                </label>
+
+                <label>Servicio
+                    <select id="service" required>
+                        <option value="">Seleccionar servicio</option>
+                        <option value="Corte degradado y fade">
+                            Corte degradado y fade - $9.500
+                        </option>
+                        <option value="Ritual de barba y navaja">
+                            Ritual de barba y navaja - $7.500
+                        </option>
+                        <option value="Combo VIP">
+                            Combo VIP - $15.000
+                        </option>
+                    </select>
+                </label>
+
+                <label>Barbero
+                    <select id="barber" required>
+                        <option value="">Seleccionar barbero</option>
+                        <option>The Blade</option>
+                        <option>Fade Master</option>
+                        <option>Classic Cut</option>
+                        <option>Primer barbero disponible</option>
+                    </select>
+                </label>
+
+                <div class="form-row">
+                    <label>Fecha
+                        <input type="date" id="date" required>
+                    </label>
+
+                    <label>Horario
+                        <select id="time" required>
+                            <option value="">Elegir horario</option>
+                            <option>09:00</option>
+                            <option>10:00</option>
+                            <option>11:00</option>
+                            <option>12:00</option>
+                            <option>13:00</option>
+                            <option>14:00</option>
+                            <option>15:00</option>
+                            <option>16:00</option>
+                            <option>17:00</option>
+                            <option>18:00</option>
+                            <option>19:00</option>
+                            <option>20:00</option>
+                        </select>
+                    </label>
+                </div>
+
+                <button class="button" type="submit">
+                    Confirmar reserva
+                </button>
+
+                <p class="fine-print">
+                    El pago se realiza en el local.
+                </p>
+
+            </form>
+
+            <div id="booking-message" class="message"></div>
+        </div>
+
+        <!-- RESUMEN -->
+        <aside class="summary">
+            <p class="eyebrow">RESUMEN DE TU TURNO</p>
+            <h3>Tu reserva</h3>
+
+            <p id="summary-service">Servicio: sin elegir</p>
+            <p id="summary-barber">Barbero: sin elegir</p>
+            <p id="summary-date">Fecha y horario: sin elegir</p>
+
+            <div class="total">
+                <span>Total</span>
+                <strong id="summary-total">$0</strong>
+            </div>
+
+            <p class="fine-print">Se abona en el local.</p>
+        </aside>
+
+    </section>
+
+    <!-- PANEL BARBEROS -->
+    <section class="section staff" id="barberos">
+
+        <p class="eyebrow">ÁREA DE STAFF</p>
+        <h2>Panel de barberos</h2>
+
+        <p>Ingresá para consultar las reservas.</p>
+
+        <div class="staff-login">
+            <label>PIN de demostración
+                <input type="password" id="staff-pin"
+                placeholder="Ingresá 1234">
+            </label>
+
+            <button class="button" id="staff-login">
+                Ingresar al panel
+            </button>
+        </div>
+
+        <div id="staff-panel" hidden>
+            <h3>Agenda de reservas</h3>
+            <div id="booking-list"></div>
+        </div>
+
+        <p class="fine-print">PIN de demostración: 1234.</p>
+
+    </section>
+
+    <!-- SCRATCH Y APP INVENTOR -->
+    <section class="section projects" id="proyectos">
+
+        <p class="eyebrow">PROYECTOS COMPLEMENTARIOS</p>
+        <h2>Scratch y App Inventor</h2>
+
+        <div class="project-links">
+
+            <article>
+                <h3>Juego en Scratch</h3>
+                <p>Proyecto de juego relacionado con el trabajo.</p>
+                <a href="https://scratch.mit.edu/projects/1397431731"
+                target="_blank">
+                    Abrir Scratch
+                </a>
+            </article>
+
+            <article>
+                <h3>Aplicación App Inventor</h3>
+                <p>Aplicación móvil del proyecto.</p>
+                <span>QR pendiente de agregar.</span>
+            </article>
+
+            <article>
+                <h3>PSeInt</h3>
+                <p>Pseudocódigo del sistema de turnos.</p>
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer>
+    <div>
+        <strong>BARBERÍA ARRUABARRENA</strong>
+        <p>Calle 12, Reconquista, Santa Fe</p>
+    </div>
+
+    <div>
+        <p>Lunes a sábado: 9:00 a 20:30 hs</p>
+        <p>Teléfono: 3482-375488</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
